@@ -32,10 +32,6 @@ public class GameManager : MonoBehaviour
             {
                 ResumeGame();
             }
-            else if (currentState == GameState.GameOver)
-            {
-                GameOver();
-            }
         }
     }
 
