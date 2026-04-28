@@ -1,10 +1,11 @@
+
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public float currentHP = 100;
-    public float speed = 5f;
+    [SerializeField] private float currentHP = 100;
+    [SerializeField] private float speed = 5f;
     private PlayerInput playerInput;
     private Vector2 moveInput;
 
