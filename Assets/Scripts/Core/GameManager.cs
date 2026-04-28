@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
         currentState = GameState.Paused;
         pauseMenu.SetActive(true);
         gameOverMenu.SetActive(false);
+        Debug.Log("Game Paused");
     }
 
     public void ResumeGame()
@@ -53,6 +54,7 @@ public class GameManager : MonoBehaviour
         currentState = GameState.Playing;
         pauseMenu.SetActive(false);
         gameOverMenu.SetActive(false);
+        Debug.Log("Game Resumed");
     }
     public void GameOver()
     {
@@ -61,18 +63,20 @@ public class GameManager : MonoBehaviour
         currentState = GameState.GameOver;
         gameOverMenu.SetActive(true);
         pauseMenu.SetActive(false);
-    }
+        }
 
     public void RestartGame()
     {
         SceneManager.LoadScene("Game");
         Time.timeScale = 1f;
+        Debug.Log("Game Restarted");
     }
 
     public void MainMenu()
     {
         SceneManager.LoadScene("MainMenu");
         Time.timeScale = 1f;
+        Debug.Log("Returned to Main Menu");
     }
 
     public void QuitGame()
