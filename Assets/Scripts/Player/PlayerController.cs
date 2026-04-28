@@ -5,7 +5,8 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float currentHP = 100;
-    [SerializeField] private float speed = 5f;
+    [SerializeField] private float speed = 5f; 
+    [SerializeField] private float damagePerSecond = 0.1f;
     private PlayerInput playerInput;
     private Vector2 moveInput;
 
@@ -30,7 +31,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Wall"))
         {
-            TakeDamage(0.1f);
+            TakeDamage(damagePerSecond * Time.deltaTime);
         }
     }
 
