@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject pauseMenu;
+    public GameObject gameOverMenu;
     public static GameManager Instance;
 
     public GameState currentState;
@@ -18,9 +20,18 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            PauseGame();
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                if (currentState == GameState.Playing)
+                {
+                    PauseGame();
+                }
+                else if (currentState == GameState.Paused)
+                {
+                    ResumeGame();
+                }
+            }
         }
     }
 
@@ -28,8 +39,15 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0f;
         currentState = GameState.Paused;
+        pauseMenu.SetActive(true);
     }
 
+    public void ResumeGame()
+    {
+        Time.timeScale = 1f;
+        currentState = GameState.Playing;
+        pauseMenu.SetActive(false);
+    }
     public void GameOver()
     {
         Debug.Log("Game Over");
