@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Game Over");
         currentState = GameState.GameOver;
         gameOverMenu.SetActive(true);
-        pauseMenu.SetActive(false);
+        pauseMenu.SetActive(false); 
         }
 
     public void RestartGame()
